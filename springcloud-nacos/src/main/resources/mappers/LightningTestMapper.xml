@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.example.springcloud.mapper.LightningTestMapper">
+    <resultMap id="BaseResultMap" type="com.example.springcloud.model.LightningTestPO">
+        <result column="id" property="id" jdbcType="BIGINT"/>
+        <result column="stock" property="stock" jdbcType="BIGINT"/>
+    </resultMap>
+
+    <!--基本字段-->
+    <sql id="Base_Column_List">
+        id,stock
+    </sql>
+
+    <!--表名-->
+    <sql id="table_name">
+        lightning_deals
+    </sql>
+
+
+    <update id="deduction" parameterType="com.example.springcloud.model.LightningTestPO">
+        update  lightning_deals
+        set  stock = stock - #{stock}
+        where id = #{id}
+    </update>
+
+
+
+
+</mapper>
